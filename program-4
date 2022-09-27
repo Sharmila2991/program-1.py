@@ -1,0 +1,35 @@
+ans = []
+def countSieve(arr, n):
+    MAX=max(arr)
+    global ans
+    ans = [0]*(MAX + 1)
+    cnt = [0]*(MAX + 1)
+    for i in range(n):
+        cnt[arr[i]] += 1
+    for i in range(1, MAX+1):
+        for j in range(i, MAX+1, i):
+            ans[i] += cnt[j]
+def countMultiples(k):
+    return(ans[k])
+if _name_ == "_main_":
+    arr = [1,2,3,4,5,6,7,8,9]
+    n=len(arr)
+    countSieve(arr, n)
+    k=1
+    print(countMultiples(1))
+    k=2
+    print(countMultiples(2))
+    k=3
+    print(countMultiples(3))
+    k=4
+    print(countMultiples(4))
+    k=5
+    print(countMultiples(5))
+    k=6
+    print(countMultiples(6))
+    k=7
+    print(countMultiples(7))
+    k=8
+    print(countMultiples(8))
+    k=9
+    print(countMultiples(9))
